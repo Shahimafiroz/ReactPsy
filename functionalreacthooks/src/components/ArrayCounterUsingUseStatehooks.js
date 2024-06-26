@@ -11,6 +11,7 @@ function ArrayCounterUsingUseStatehooks() {
     return (
         <div>
             <h1>UseState Hook with Array</h1>
+            <input type='text' value={items} onChange={""}></input>
             <button onClick={addItem}>Add Item</button>
             <ul>
                 {items.map(item => {
