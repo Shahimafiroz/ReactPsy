@@ -1,0 +1,60 @@
+ body{
+    font-size: small;
+} 
+
+
+#table{
+    padding: 1rem;
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: small;
+    border: 1;
+  
+} 
+
+.headerTable{
+  text-align: left;
+  width: 100%;
+  justify-content: center;
+}
+#headerTableAlignment{
+  display: flex;
+}
+
+table {
+    
+    
+  
+  }
+
+  #tax{
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 40px;
+    font-weight: bold;
+  }
+
+  #tax.text {
+    padding: 100px
+  }
+ 
+.boldColumns{
+    text-align: left;
+    width: 10;
+    width: 50%;
+   
+  }
+
+.nonBoldColumnsOfHeader{
+  text-align: left;
+  width: 30%;
+  height: auto;
+}
+
+.bold{
+  font-weight: bold;
+}
+.outerEnclouser{
+  
+
+}
