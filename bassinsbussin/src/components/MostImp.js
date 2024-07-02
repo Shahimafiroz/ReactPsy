@@ -47,7 +47,7 @@ function MostImp() {
                 justifyContent: "center",
                 alignItems: "center",
                 width: "auto",
-                background: "lightblue",
+
             }}
         >
             {/* the top heading */}

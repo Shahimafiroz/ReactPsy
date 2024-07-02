@@ -9,7 +9,7 @@ export default function Feature() {
     <div
       style={{
         fontFamily: "Dancing Script",
-        marginTop: "30px",
+        marginTop: "3rem",
         alignItems: "center",
         justifyContent: "center",
         width: "auto",
@@ -21,7 +21,7 @@ export default function Feature() {
           flexDirection: "row",
           justifyContent: "space-around",
           margin: "auto",
-          width: "80%",
+          width: "70%",
           alignSelf: "center",
         }}
       >
