@@ -7,7 +7,7 @@ import MostImp from './components/MostImp';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" >
       <Navbar></Navbar>
       <Homee></Homee>
       <Feature></Feature>

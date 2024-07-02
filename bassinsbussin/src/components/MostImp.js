@@ -1,42 +1,85 @@
-import React from 'react'
-import sample from './assets/sample1.jpg'
+import React from "react";
+import sample from "./assets/sample1.jpg";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import Card from "./Card";
+import Search from "./Search";
 
 function MostImp() {
+    // const [rawRecies, setRawRecies] = useState();
+    const [finalRecies, setFinalRecies] = useState([]);
+    const [dish, setDish] = useState("");
+
+    const keepDish = (e) => {
+        setDish(e.target.value);
+    };
+
+    const search = () => {
+        // console.log('button was clicked', dish)
+        axios
+            .get(
+                `https://api.edamam.com/search?q=${dish}&app_id=8ab14eb9&app_key=4ac283b2ad4d0a72799ec2980ed2b3b2`
+            )
+            .then((res) => {
+                let finaleResponse = res.data.hits.map((reci) => ({
+                    Heading: reci.recipe.label,
+                    Ig: reci.recipe.image,
+                    diet: reci.recipe.dietLabels,
+                    detailedRecipe: reci.recipe.url,
+                    Ingredients: reci.recipe.ingredientLines,
+                }));
+                setFinalRecies(finaleResponse);
+                console.log(finalRecies);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
+
+    // console.log(dish)
     return (
-        <div style={{ fontFamily: 'Mate', margin: '8rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+        <div
+            style={{
+                fontFamily: "Mate",
+                margin: "8rem",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                width: "auto",
+                background: "lightblue",
+            }}
+        >
             {/* the top heading */}
             <div>
-                <p style={{ fontSize: 'xx-large', fontWeight: 'bold', color: '#345222' }}>    Most Popular Recipes  </p>
-                <p style={{ fontSize: 'xxx-large', color: '#A36041' }}>~</p>
+                <p
+                    style={{ fontSize: "xx-large", fontWeight: "bold", color: "#345222" }}
+                >
+                    {" "}
+                    Most Popular Recipes{" "}
+                </p>
+                <p style={{ fontSize: "xxx-large", color: "#A36041" }}>~</p>
             </div>
             {/* end */}
-            {/* card element */}
-            <div >
-                {/* each element */}
-                <div style={{ display: 'flex', justifyContent: 'flex-start', width: '50rem', height: '18rem', backgroundColor: '#fde4c7', }}>
-                    <div>
-                        <img src={(sample)} style={{ width: '20rem', height: "18rem" }}></img>
-                    </div>
-                    <div>
 
-                    </div>
-                </div>
+            <Search buttonHandler={search} searchValue={dish} keepDish={keepDish} />
 
-
-
-
-                <div style={{ marginTop: '20px', display: 'flex', justifyContent: 'flex-start', width: '50rem', height: '18rem', backgroundColor: '#fde4c7', }}>
-                    <div>
-                        <p>hello</p>
-                    </div>
-                    <div>
-                        <img src={(sample)} style={{ width: '20rem', height: "18rem" }}></img>
-                    </div>
-                </div>
-                {/* each element */}
+            <div>
+                {finalRecies.map((item) => (
+                    <Card recipeData={item} />
+                ))}
             </div>
         </div>
-    )
+    );
 }
 
-export default MostImp
+export default MostImp;
+
+// let updatedResponse = res.data.hits.map(item => ({
+//     label: item.recipe.label,
+//     testLabels: item.recipe.healthLabels
+// }))
+// setFinalRecies(updatedResponse)
+
+// setRawRecies(res.data.hits)
+// console.log(rawRecies)
