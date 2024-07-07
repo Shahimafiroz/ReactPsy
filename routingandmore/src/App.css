@@ -36,14 +36,3 @@
     transform: rotate(360deg);
   }
 }
-
-.navbar{
-display: 'flex';
- justify-content: space-around;
- align-items: flex-end;
- color: 'black';
- padding: '20px'; 
- text-decoration: none;
-
-
-}
