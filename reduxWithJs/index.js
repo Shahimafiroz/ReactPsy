@@ -1,8 +1,12 @@
 const redux = require("redux");
+const reduxLogger = require("redux-logger");
+
+const logger = reduxLogger.createLogger();
+const applyMiddelware = redux.applyMiddleware;
 const createStore = redux.createStore;
 const combine = redux.combineReducers;
 
-//---------------Action------------------//
+//----------------------------------------------------------------------------------  Action  -------------------------------------------------------------------------------------------------//
 
 const BAKE_A_CAKE = "BAKE_A_CAKE";
 const SELL_A_CAKE = "SELL_A_CAKE";
@@ -44,7 +48,7 @@ const askShahimaToBakeACake = () => {
 
 //----------- reducer ----------------//
 
-// multipel reducers
+//---------------------------------------------------------------------- multipel reducers ------------------------------------------------------------------------------------------------//
 
 const initialcakeState = {
   numOfCakes: 10,
@@ -86,7 +90,7 @@ const rootReducer = combine({
 });
 // implementing the reducers
 
-const combinedStore = createStore(rootReducer); // pasing the combined reducers
+const combinedStore = createStore(rootReducer, applyMiddelware); // pasing the combined reducers
 
 const unsubsfromCombStore = combinedStore.subscribe(() =>
   console.log("this is from combined state cakes", combinedStore.getState())
@@ -106,7 +110,7 @@ unsubsfromCombStore();
 
 // combine multipel reducers to call them
 
-/*  -- example of using singel reducer
+/*  ----------------------------------------------------------------------------- singel reducer----------------------------------------------------------------------
 
 const initialState = {
   numOfCakes: 10,
