@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { BAKE_CAKE, SELL_CAKE_BY_5 } from "../redux/cake/cakeTypes";
+import { BAKE_CAKE, SELL_CAKE_BY_5 } from "../../redux/cake/cakeTypes";
 
 function Cakes() {
   const numberOfCakesObj = useSelector((state) => state.cakeReducer);

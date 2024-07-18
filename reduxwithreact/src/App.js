@@ -1,16 +1,14 @@
-import Cakes from "./components/Cakes";
 import "./App.css";
 import { Provider } from "react-redux";
-import store from "./redux/store";
-import Ice from "./components/Ice";
+import store from "./redux/myStore";
+import FetchUsers from "./components/Users/FetchUsers";
 
 function App() {
   return (
     <div className="App">
-      <Provider store={store}>
-        <Cakes />
-        <Ice />
-      </Provider>
+      {/* <Provider store={store}> */}
+      <FetchUsers />
+      {/* </Provider> */}
     </div>
   );
 }
