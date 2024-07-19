@@ -6,9 +6,9 @@ import FetchUsers from "./components/Users/FetchUsers";
 function App() {
   return (
     <div className="App">
-      {/* <Provider store={store}> */}
-      <FetchUsers />
-      {/* </Provider> */}
+      <Provider store={store}>
+        <FetchUsers />
+      </Provider>
     </div>
   );
 }
